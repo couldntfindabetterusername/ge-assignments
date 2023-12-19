@@ -1,34 +1,41 @@
 public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Welcome to employee wage builder");
-
+    public static int workingHoursADay(){
         int attendance = Math.random() > 0.5 ? 1 : 0;
 
-        switch(attendance){
-            case 1: System.out.println("Employee is present");
-                break;
-
-            default: System.out.println("Employee is absent");
-                return;
+        if(attendance == 0){
+            return 0;
         }
 
         int isFullTime = Math.random() > 0.5 ? 1 : 0;
-        
-        int WAGE_PER_HOUR = 20;
-        int EMP_HRS = 0;
+        int empHrs = 0;
 
         switch(isFullTime){
-            case 1: System.out.println("Employee is fulltime");
-                EMP_HRS = 8;
+            case 1: empHrs = 8;
                 break;
 
-            default: System.out.println("Employee is parttime");
-                EMP_HRS = 4;
+            default: empHrs = 4;
                 break;
         }
 
-        int empWage = EMP_HRS * WAGE_PER_HOUR;
+        return empHrs;
+    }
 
-        System.out.println("Wage of the employee is: " + empWage);
+    public static void main(String[] args) throws Exception {
+        System.out.println("Welcome to employee wage builder");
+
+        int WAGE_PER_HOUR = 20;
+        
+        int empHrs = 0;
+
+        int NUM_DAYS = 20;
+
+        while(NUM_DAYS > 0){
+            empHrs += workingHoursADay();
+            NUM_DAYS--;
+        }
+
+        int empWage = empHrs * WAGE_PER_HOUR;
+
+        System.out.println("Monthly wage of the employee is: " + empWage);
     }
 }
