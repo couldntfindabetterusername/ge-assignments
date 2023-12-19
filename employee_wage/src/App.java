@@ -4,11 +4,12 @@ public class App {
 
         int attendance = Math.random() > 0.5 ? 1 : 0;
 
-        if(attendance == 1){
-            System.out.println("Employee is present");
-        }else{
-            System.out.println("Employee is absent");
-            return;
+        switch(attendance){
+            case 1: System.out.println("Employee is present");
+                break;
+
+            default: System.out.println("Employee is absent");
+                return;
         }
 
         int isFullTime = Math.random() > 0.5 ? 1 : 0;
@@ -16,13 +17,14 @@ public class App {
         int WAGE_PER_HOUR = 20;
         int EMP_HRS = 0;
 
-        if(isFullTime == 1) {
-            System.out.println("Employee is fulltime");
-            EMP_HRS = 8;
-        }
-        else {
-            System.out.println("Employee is parttime");
-            EMP_HRS = 4;
+        switch(isFullTime){
+            case 1: System.out.println("Employee is fulltime");
+                EMP_HRS = 8;
+                break;
+
+            default: System.out.println("Employee is parttime");
+                EMP_HRS = 4;
+                break;
         }
 
         int empWage = EMP_HRS * WAGE_PER_HOUR;
