@@ -8,6 +8,14 @@ public class App {
             System.out.println("Employee is present");
         }else{
             System.out.println("Employee is absent");
+            return;
         }
+
+        int WAGE_PER_HOUR = 20;
+        int EMP_HRS = 8;
+
+        int empWage = EMP_HRS * WAGE_PER_HOUR;
+
+        System.out.println(empWage);
     }
 }
