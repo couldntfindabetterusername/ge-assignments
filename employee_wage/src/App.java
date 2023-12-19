@@ -29,13 +29,18 @@ public class App {
 
         int NUM_DAYS = 20;
 
-        while(NUM_DAYS > 0){
+        int empDays;
+        for(empDays = 1; empDays <= NUM_DAYS; empDays++){
             empHrs += workingHoursADay();
-            NUM_DAYS--;
+            if(empHrs > 100){
+                empHrs = 100;
+                break;
+            }
         }
 
         int empWage = empHrs * WAGE_PER_HOUR;
 
+        System.out.println("Employee has worked for " + (empDays-1) + " days and " + empHrs + " hours.");
         System.out.println("Monthly wage of the employee is: " + empWage);
     }
 }
