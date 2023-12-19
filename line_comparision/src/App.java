@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 public class App {
-    public static Line getLine(Scanner scanner) {
+    static Scanner scanner = new Scanner(System.in);
+
+    public static Line getLine() {
         System.out.print("Enter start point of line: ");
         int x1 = scanner.nextInt();
         int y1 = scanner.nextInt();
@@ -18,21 +20,40 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Welcome to line comparision computation");
 
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("For line 1:");
-        Line l1 = getLine(scanner);
+        Line line1 = getLine();
 
-        System.out.println("Length of line 1: " + l1.length);
+        System.out.println("Length of line 1: " + line1.length);
 
         System.out.println("For line 2:");
-        Line l2 = getLine(scanner);
+        Line line2 = getLine();
 
-        System.out.println("Length of line 2: " + l2.length);
+        System.out.println("Length of line 2: " + line2.length);
 
         scanner.close();
 
-        boolean lineEqual = l1.equals(l2);
-        System.out.println(lineEqual);
+        boolean lineEqual = line1.equals(line2);
+
+        if (lineEqual) {
+            System.out.println("Both lines are equal");
+        } else {
+            System.out.println("Lines are not equal");
+        }
+
+        int lineCompare = line1.compareTo(line2);
+
+        if (lineCompare == 0) {
+            System.out.println("Both lines are of equal length");
+        } else if (lineCompare > 0) {
+            System.out.println("Line 1 is greater than line 2");
+        } else {
+            System.out.println("Line 2 is greater than line 1");
+        }
+
+        // String temp = lineCompare == 0 ? "Both lines are of equal length"
+        // : lineCompare > 0 ? "Line 1 is greater than line 2" : "Line 1 is smaller than
+        // line 2";
+
+        // System.out.println(temp);
     }
 }

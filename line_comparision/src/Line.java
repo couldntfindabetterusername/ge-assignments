@@ -11,18 +11,16 @@ public class Line {
         this.length = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     }
 
-    @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Line obj) {
         if (this == obj) {
             return true;
         }
 
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
+        return this.x1 == obj.x1 && this.y1 == obj.y1 && this.x2 == obj.x2 && this.y2 == obj.y2;
+    }
 
-        Line otherLine = (Line) obj;
+    public int compareTo(Line otherLine) {
 
-        return this.x1 == otherLine.x1 && this.y1 == otherLine.y1 && this.x2 == otherLine.x2 && this.y2 == otherLine.y2;
+        return Double.compare(this.length, otherLine.length);
     }
 }
