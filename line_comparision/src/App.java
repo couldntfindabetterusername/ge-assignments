@@ -12,7 +12,7 @@ public class App {
         int x2 = scanner.nextInt();
         int y2 = scanner.nextInt();
 
-        Line line = new Line(x1, y1, x2, y2);
+        Line line = new Line(new Point(x1, y1), new Point(x2, y2));
 
         return line;
     }
