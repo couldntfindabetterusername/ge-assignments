@@ -34,7 +34,7 @@ public class Company {
 
     private static String getStringInp() {
         System.out.println("Enter the company name: ");
-        return scanner.nextLine();
+        return scanner.next();
     }
 
     private static ArrayList<Employee> getListInp() {
